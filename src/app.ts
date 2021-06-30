@@ -3,6 +3,7 @@ import session from 'express-session';
 import passport from 'passport';
 import 'dotenv/config';
 import passportStrategy from '~/config/passport';
+import { router } from '~/routes';
 
 const app = express();
 
@@ -14,5 +15,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use(router);
 
 export { app };
